@@ -1,0 +1,508 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRIMAP-hist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.3/dist/css/select2.min.css" integrity="sha256-xJOZHfpxLR/uhh1BwYFS5fhmOAdIRQaiOul5F/b7v3s=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tachyons@4.12.0/css/tachyons.min.css" integrity="sha256-MgEf5i1a74lVzhT+1R6mBbWCUeUaxC8sQTaN5GY+CoI=" crossorigin="anonymous">
+<style>
+body {
+  font-family: 'Fira Sans', sans-serif;
+}
+h3 {
+  position: relative;
+  left: -15px;
+}
+h3:before {
+  content: "\A";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #08449c;
+  margin-right: 7px;
+  margin-bottom: 2px;
+  display: inline-block;
+}
+input.year {
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  max-width: 15%;
+  text-align: center;
+}
+.hidden {
+  display: none;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+table tr.ipc {
+  cursor: pointer;
+}
+.legend-values, .legend-percent {
+  text-align: right;
+}
+.legend-colorbox {
+  width: 20px;
+  display: inline-block;
+  text-align: center;
+}
+.slopegraph {
+  height: 20px;
+  width: 30px;
+}
+.slopegraph .line {
+  fill: none;
+  stroke: black;
+  stroke-width: 1px;
+}
+div#settings, div#totals-or-percentage, div#info-text {
+  text-align: center;
+}
+a {
+  color: #08449c;
+}
+.primap-blue {
+  color: #08449c;
+}
+</style>
+</head>
+<body class="bg-white">
+
+<div class="bb bw2 b--black">
+<div class="ph4 mw9">
+<h1 class="f1 black"><a href=".."><img src="../primap_logo.jpg" style="max-width: 40px; top: 20px;" alt="PRIMAP log"></a> <a class="no-underline black" href="..">PRIMAP</a></h1>
+</div>
+</div>
+
+<div class="ph4 mw9">
+
+<h2>The PRIMAP-hist national historical emissions time series (1750-2019) v2.3.1</h2>
+
+</div>
+
+<div class="bg-lightest-blue bt bb b--black-20">
+<div class="ph4 cf mw8">
+<div class="fl w-100 w-50-l pr2 ">
+<h3>Dataset Description Paper</h3>
+<p>
+Gütschow, Johannes; Jeffery, M. Louise; Gieseke, Robert; Gebel, Ronja; Stevens, David; Krapp, Mario; Rocha, Marcia (2016): The PRIMAP-hist national historical emissions
+time series, Earth Syst. Sci. Data, 8, 571-603,
+<a class="primap-blue" href="https://doi.org/10.5194/essd-8-571-2016">https://doi.org/10.5194/essd-8-571-2016</a>
+</p>
+</div>
+<div class="fl w-100 w-50-l pr2">
+<h3>Dataset Download (Version 2.3.1)</h3>
+<p>
+
+Gütschow, Johannes
+; 
+
+Günther, Annika
+; 
+
+Pflüger, Mika
+
+
+(2021): The PRIMAP-hist national historical emissions time series (1750-2019) v2.3.1. Zenodo. <a class="primap-blue" href="https://doi.org/10.5281/zenodo.5494497">https://doi.org/10.5281/zenodo.5494497</a>
+</p>
+</div>
+</div>
+</div>
+
+<div class="cf bb b--black-20">
+<div class="fl w-100 ph4 mw8">
+<h3>About PRIMAP-hist</h3>
+<p>
+The PRIMAP-hist dataset combines several published datasets to create a comprehensive set of greenhouse gas emission pathways for every country and Kyoto gas covering the years from 1750 to 2019, and all UNFCCC (United Nations Framework Convention on Climate Change) member states, as well as most non-UNFCCC territories.
+<br>
+Subsector data for Energy, Industrial Processes and Agriculture is available for CO<sub>2</sub>, CH<sub>4</sub>, and N<sub>2</sub>O. Due to data availability and methodological issues, the data for land use, land use change, and forestry (LULUCF) of the PRIMAP-hist dataset has to be used with extra care.
+</p>
+<p>
+<a href="https://github.com/JGuetschow/PRIMAP-hist">Issue tracker on GitHub</a> |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="https://zenodo.org/api/files/cba87e0d-4d62-40ac-8da4-8133deb6081c/PRIMAP-hist_v2.3.1_data-description.pdf">Data Description and Changelog (PDF)</a> |
+
+
+
+
+
+<a href="https://zenodo.org/api/files/cba87e0d-4d62-40ac-8da4-8133deb6081c/PRIMAP-hist_v2.3.1_updated_figures.pdf"">Updated Figures (PDF)</a>
+
+
+</p>
+</div>
+</div>
+
+
+<div class="cf ph4 pb4 bb b--black-20">
+<div class="fl w-100">
+<h3><span id="scenarioName"></span> -<span id="countryName"></span> - <span id="entityName"></span></h3>
+</div>
+
+<div class="fl w-100 w-two-thirds-l mw8">
+
+<div class="dt dt--fixed">
+<div class="dt-row">
+<div class="dtc">
+<select id="scenarios" style="width: 90%">
+<option></option>
+</select>
+</div>
+<div class="dtc">
+<select id="countries" style="width: 90%">
+<option></option>
+</select>
+</div>
+<div class="dtc">
+<select id="entities" style="width: 90%">
+<option></option>
+</select>
+</div>
+</div>
+</div>  
+
+<div id="chart"></div>
+<div>Data (<a href="https://doi.org/10.5281/zenodo.5494497">CC-BY-4.0</a>): <a class="primap-blue" href="" id="download"></a></div>
+</div>
+
+<div class="fl w-100 w-third-l">
+
+
+<div id="legend">
+<table class="collapse w-100">
+<tr class="bt bb">
+<th class="w-10"></th>
+<th id="category">Category</th>
+<th></th>
+<th class="w-20 tr pr1" id="year" colspan="2"></th>
+</tr>
+<tbody>
+<tr class="ipc" id="ipc5">
+  <td class="pl3">
+    <input id="show-ipc5" type="checkbox" checked></input>
+    </td>
+    <td>Other (IPC5)</td>
+    <td class=""><svg class="slopegraph"><path class="line"></path></svg></td>
+    <td class="pr2 legend-values"></td>
+    <td class="pr2 legend-percent hidden"></td>
+</tr>
+<tr class="ipc" id="ipc4">
+  <td class="pl3">
+    <input id="show-ipc4" type="checkbox" checked></input>
+    </td>
+    <td>Waste (IPC4)</td>
+    <td class=""><svg class="slopegraph"><path class="line"></path></svg></td>
+    <td class="pr2 legend-values"></td>
+    <td class="pr2 legend-percent hidden"></td>
+</tr>
+<tr class="ipc" id="ipcmag">
+  <td class="pl3">
+    <input id="show-ipcmag" type="checkbox" checked></input>
+    </td>
+  <td> Agriculture (IPCMAG, sum of IPC3A and IPCMAGELV)</td>
+  <td class=""><svg class="slopegraph"><path class="line"></path></svg></td>
+  <td class="pr2 legend-values"></td>
+  <td class="pr2 legend-percent hidden"></td>
+</tr>
+<tr class="ipc" id="ipc2">
+  <td class="pl3">
+    <input id="show-ipc2" type="checkbox" checked></input>
+  </td>
+  <td>Industrial Processes and Product Use (IPC2)</td>
+  <td class=""><svg class="slopegraph"><path class="line"></path></svg></td>
+  <td class="pr2 legend-values"></td>
+  <td class="pr2 legend-percent hidden"></td>
+</tr>
+<tr class="ipc" id="ipc1">
+  <td class="pl3">
+    <input id="show-ipc1" type="checkbox" checked></input>
+  </td>
+  <td>Energy (IPC1)</td>
+  <td class=""><svg class="slopegraph"><path class="line"></path></svg></td>
+  <td class="pr2 legend-values"></td>
+  <td class="pr2 legend-percent hidden"></td>
+</tr>
+<tr class="bt bw1 bb" id="total">
+  <td>
+  </td>
+  <td>Totals (Excluding Land-Use)</td>
+  <td><svg class="slopegraph"><path class="line"></path></svg></td>
+  <td class="pr2 legend-values"></td>
+  <td class="pr2 legend-percent hidden"></td>
+</tr>
+
+</tbody>
+</table>
+
+<div id="info-text">
+<small>Shift-click a category to toggle viewing a single category.</small>
+</div>
+<div id="totals-or-percentage" class="f6">
+  <label>
+    <input type="radio" name="totals-or-percentage" id="show-totals" value="totals" checked>
+    Show totals
+  </label>
+  <label>
+    <input type="radio" name="totals-or-percentage" id="show-percentage" value="percentages">
+    Show percentages
+  </label>
+  <label>
+  <input id="fixed-scale" type="checkbox" checked></input>
+  Keep scale fixed
+  </label>
+</div>
+
+<div class="fl pt2 w-100">
+<table class="collapse w-100">
+<thead>
+<tr class="bb">
+<th>Group/Abbrev.</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="striped--near-white bb b--black-10">
+<td align="left"><a class="primap-blue" href="#scenario=histcr&id=earth&entity=kyotoghg_(ar4gwp100)">All parties</a></td>
+<td align="left">Aggregated emissions for all countries.</td>
+</tr>
+<tr class="striped--near-white bb b--black-10">
+<td align="left"><a class="primap-blue" href="#scenario=histcr&id=annexi&entity=kyotoghg_(ar4gwp100)">Annex-I</a></td>
+<td align="left">Annex-I Parties to the Convention</td>
+</tr>
+<tr class="striped--near-white bb b--black-10">
+<td align="left"><a class="primap-blue" href="#scenario=histcr&id=nonannexi&entity=kyotoghg_(ar4gwp100)">Non-Annex-I</a></td>
+<td align="left">Non-Annex-I Parties to the Convention</td>
+</tr>
+<tr class="striped--near-white bb b--black-10"">
+<td align="left"><a class="primap-blue" href="#scenario=histcr&id=aosis&entity=kyotoghg_(ar4gwp100)">AOSIS<a></td>
+<td align="left">Alliance of Small Island States</td>
+</tr>
+<tr class="striped--near-white bb b--black-10">
+<td align="left"><a class="primap-blue" href="#scenario=histcr&id=basic&entity=kyotoghg_(ar4gwp100)">BASIC</a></td>
+<td align="left">BASIC countries (Brazil, South Africa, India and China)</td>
+</tr>
+<tr class="striped--near-white bb b--black-10">
+<td align="left"><a class="primap-blue" href="#scenario=histcr&id=eu27bx&entity=kyotoghg_(ar4gwp100)">EU27</a></td>
+<td align="left">European Union (post Brexit)</td>
+</tr>
+<tr class="striped--near-white">
+<td align="left"><a class="primap-blue" href="#scenario=histcr&id=ldc&entity=kyotoghg_(ar4gwp100)">LDC</a></td>
+<td align="left">Least Developed Countries</td>
+</tr>
+<tr class="striped--near-white">
+<td align="left"><a class="primap-blue" href="#scenario=histcr&id=umbrella&entity=kyotoghg_(ar4gwp100)">Umbrella-Group</a></td>
+<td align="left">Umbrella Group</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div><! -- Right column-->
+
+</div><!-- /div.cf -->
+
+</div>
+
+
+<div class="fl ph4 pb4-l w-50-l w-100">
+
+<h3>Recommended citation</h3>
+
+<p>
+When using this dataset, or one of its updates, please cite the DOI of the precise version of the dataset
+used and also the data description article to which this dataset is supplement. Please consider
+also citing relevant original sources when using the PRIMAP-hist dataset. References to the original sources
+can be found in the manuscript and on the dataset download page.
+</p>
+
+<h4>Description Article</h4>
+<p class="pl2 bl bw2 b--light-silver">
+Gütschow, Johannes.; Jeffery, M. Louise; Gieseke, Robert; Gebel, Ronja; Stevens, David; Krapp, Mario; Rocha, Marcia (2016):
+The PRIMAP-hist national historical emissions time series, Earth Syst. Sci. Data, 8, 571-603,
+<a class="primap-blue" href="https://doi.org/10.5194/essd-8-571-2016">https://doi.org/10.5194/essd-8-571-2016</a>
+</p>
+
+<h4>Dataset</h4>
+<p class="pl2 bl bw2 b--light-silver">
+
+Gütschow, Johannes
+; 
+
+Günther, Annika
+; 
+
+Pflüger, Mika
+
+
+(2021): The PRIMAP-hist national historical emissions time series (1750-2019) v2.3.1. Zenodo. <a class="primap-blue" href="https://doi.org/10.5281/zenodo.5494497">https://doi.org/10.5281/zenodo.5494497</a>
+</p>
+
+<h3>Contact</h3>
+
+<p>
+Johannes Gütschow
+<br>
+<a class="primap-blue" href="mailto:mail@johannes-guetschow.de">mail@johannes-guetschow.de</a>
+</p>
+
+<p>
+We would appreciate it if you notify us when you use the dataset so that we can keep track
+of how it is used and take that into consideration when updating and improving the dataset.
+</p>
+
+<h3>Changelog</h3>
+<h4>Version 2.3.1 (September 2021) </h4>
+<p>
+The 2.3.1 release is a minor bugfix update version 2.3.1. The only new data source included is updated <a class="primap-blue" href="https://doi.org/10.5194/essd-11-1675-2019">cement process emissions data </a>.
+<br>
+<a class="primap-blue" href="https://doi.org/10.5281/zenodo.5494497">https://doi.org/10.5281/zenodo.5494497</a>
+</p>
+
+<h4>Version 2.3 (August 2021)</h4>
+<p>
+The 2.3 release is an update of version 2.2. The methodology is mainly unchanged, but the input sources have been updated where available. For early historical data we now  use CEDS for CH4 and CO2. The time-series now start in 1750 instead of 1850. Additionally some bugs have been fixed.
+<br>
+<a class="primap-blue" href="https://doi.org/10.5281/zenodo.5175154">https://doi.org/10.5281/zenodo.5175154</a>
+</p>
+
+<h4>Version 2.2 (February 2021)</h4>
+<p>
+The 2.2 release is a minor update of version 2.1. The methodology is unchanged, only the input sources have been updated where available. Additionally some bugs have been fixed.
+<br>
+<a class="primap-blue" href="https://doi.org/10.5281/zenodo.4479172">https://doi.org/10.5281/zenodo.4479172</a>
+</p>
+
+<h4>Version 2.1 (November 2019)</h4>
+<p>
+The 2.1 release is a minor update of version 2.0. The methodology is unchanged, only the input sources have been updated where available. Additionally some bugs have been fixed.
+<br>
+<a class="primap-blue" href="https://doi.org/10.5880/PIK.2019.018">https://doi.org/10.5880/PIK.2019.018</a>
+</p>
+
+
+<h4>Version 2.0 (December 2018)</h4>
+
+<p>
+The 2.0 release comes with several important changes. The dataset now uses the sectors from the IPCC 2006 guidelines. It includes new and updated data sources (EDGAR v4.3.2, Andrew 2018 cement data, updated BUR, CRF and UNFCCC data, updated BP and FAO data). This release of PRIMAP-hist does not include LULUCF emissions. We also present two different time series to highlight discrepancies between data from third party assessments and data reported by countries. In the "country reported priority" time series we prioritize country reported data over third party data. This is a direct continuation of earlier versions of PRIMAP-hist. This time series has the scenario code "HISTCR". In the "third party priority" time series we prioritize data from third party assessments (e.g. by research institutes, international organization, or private companies) over the country reported data. The scenario code is "HISTTP".
+<br>
+<a class="primap-blue" href="https://doi.org/10.5880/PIK.2019.001">https://doi.org/10.5880/PIK.2019.001</a>
+</p>
+
+<h4>Version 1.1 (February 2017)</h4>
+<p>
+The 1.1 release contains mostly bug fixes. To keep the dataset up to date we also included some updated
+data sources.
+<br>
+<a class="primap-blue" href="https://doi.org/10.5880/PIK.2017.001">https://doi.org/10.5880/PIK.2017.001</a>
+</p>
+
+<h4>Version 1.0 (November 2016)</h4>
+<p>
+First release.
+<br>
+<a class="primap-blue" href="https://doi.org/10.5880/PIK.2016.003">https://doi.org/10.5880/PIK.2016.003</a>
+</p>
+
+</div>
+
+<div class="fl ph4 pb4-l w-50-l w-100">
+<h3>Why we currently do not include land use data in PRIMAP-hist</h3>
+<p>
+LULUCF data has high annual fluctuations which makes it difficult to
+combine datasets by scaling of one dataset to match the other (and use
+the growth rates of the scaled dataset to extend the other dataset).
+Thus in PRIMAP-hist v1 we used unscaled data, which introduces sudden changes in
+emissions timeseries that were often understood by users as changes in actual
+emissions instead  of changes in underlying dataset.
+
+LULUCF emissions estimates vary strongly between different datasets and
+the methodologies used can be very different. There are also changes in methodologies
+within datasets, which again introduce sudden emissions changes into the timeseries. With the
+data currently available, we cannot produce time series that fulfill our
+requirements for internal consistency and easy usability by a broad audience.
+Describing the inconsistencies and the limitations to the use of the dataset resulting from these
+issues has proven not to suffice as the LULUCF data lead to misunderstandings.
+Thus we have decided to stop publishing LULUCF timeseries
+until either there are more consistent datasets or we develop an improved methodology
+to create a consistent and easy to use LULUCF dataset.
+</p>
+
+
+<h3>Notes</h3>
+
+<p>Emissions from international Aviation and Shipping are not included.</p>
+
+<p>Gas categories are using global warming potentials from either the IPCC's (Intergovernmental Panel on Climate Change) Second Assessment Report (SAR) or Assessment Report 4 (AR4).</p>
+
+<p>
+The last years of the time series are obtained using extrapolations for some sectors and gases for Non-Annex-I countries. Therefore these data have to be used with caution when making statements about short term emissions trends.
+<br>
+Please check out the dataset without extrapolation to find out which time series have been extrapolated. This dataset is available together with the extrapolated data under the DOI given above.
+</p>
+<p>
+We provide a version of this dataset that does not use numerical extrapolation to the future that can
+be used for this purpose. Where regional data is used for extrapolation to the past, individual country
+developments are not taken into account and can not be deduced from the data. Short term trends can
+also be influenced by the combination of different sources, thus the consultation of original sources
+is advised before making statements about such trends.
+</p>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.3/dist/js/select2.min.js" integrity="sha256-+mWd/G69S4qtgPowSELIeVAv7+FuL871WXaolgXnrwQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@3.5.17/d3.min.js" integrity="sha256-dsOXGNHAo/syFnazt+KTBsCQeRmlcW1XKL0bCK4Baec=" crossorigin="anonymous"></script>
+<script>
+  const lastYear = 2019;
+  const countries = ['ABW', 'AFG', 'AGO', 'AIA', 'ALB', 'AND', 'ANNEXI', 'ANT', 'AOSIS', 'ARE', 'ARG', 'ARM', 'ATA', 'ATG', 'AUS', 'AUT', 'AZE', 'BASIC', 'BDI', 'BEL', 'BEN', 'BFA', 'BGD', 'BGR', 'BHR', 'BHS', 'BIH', 'BLR', 'BLZ', 'BOL', 'BRA', 'BRB', 'BRN', 'BTN', 'BWA', 'CAF', 'CAN', 'CHE', 'CHL', 'CHN', 'CIV', 'CMR', 'COD', 'COG', 'COK', 'COL', 'COM', 'CPV', 'CRI', 'CUB', 'CYP', 'CZE', 'DEU', 'DJI', 'DMA', 'DNK', 'DOM', 'DZA', 'EARTH', 'ECU', 'EGY', 'ERI', 'ESP', 'EST', 'ETH', 'EU27BX', 'FIN', 'FJI', 'FRA', 'FSM', 'GAB', 'GBR', 'GEO', 'GHA', 'GIN', 'GMB', 'GNB', 'GNQ', 'GRC', 'GRD', 'GTM', 'GUY', 'HKG', 'HND', 'HRV', 'HTI', 'HUN', 'IDN', 'IND', 'IRL', 'IRN', 'IRQ', 'ISL', 'ISR', 'ITA', 'JAM', 'JOR', 'JPN', 'KAZ', 'KEN', 'KGZ', 'KHM', 'KIR', 'KNA', 'KOR', 'KWT', 'LAO', 'LBN', 'LBR', 'LBY', 'LCA', 'LDC', 'LIE', 'LKA', 'LSO', 'LTU', 'LUX', 'LVA', 'MAC', 'MAR', 'MCO', 'MDA', 'MDG', 'MDV', 'MEX', 'MHL', 'MKD', 'MLI', 'MLT', 'MMR', 'MNE', 'MNG', 'MOZ', 'MRT', 'MUS', 'MWI', 'MYS', 'NAM', 'NER', 'NGA', 'NIC', 'NIU', 'NLD', 'NONANNEXI', 'NOR', 'NPL', 'NRU', 'NZL', 'OMN', 'PAK', 'PAN', 'PER', 'PHL', 'PLW', 'PNG', 'POL', 'PRK', 'PRT', 'PRY', 'QAT', 'ROU', 'RUS', 'RWA', 'SAU', 'SDN', 'SEN', 'SGP', 'SHN', 'SLB', 'SLE', 'SLV', 'SMR', 'SOM', 'SRB', 'SSD', 'STP', 'SUR', 'SVK', 'SVN', 'SWE', 'SWZ', 'SYC', 'SYR', 'TCA', 'TCD', 'TGO', 'THA', 'TJK', 'TKL', 'TKM', 'TLS', 'TON', 'TTO', 'TUN', 'TUR', 'TUV', 'TWN', 'TZA', 'UGA', 'UKR', 'UMBRELLA', 'URY', 'USA', 'UZB', 'VAT', 'VCT', 'VEN', 'VGB', 'VNM', 'VUT', 'WSM', 'YEM', 'ZAF', 'ZMB', 'ZWE'];
+  const entities = ['CH4', 'CO2', 'KYOTOGHG_(AR4GWP100)', 'KYOTOGHG_(SARGWP100)', 'N2O', 'FGASES_(AR4GWP100)', 'FGASES_(SARGWP100)', 'HFCS_(AR4GWP100)', 'HFCS_(SARGWP100)', 'SF6', 'NF3', 'PFCS_(AR4GWP100)', 'PFCS_(SARGWP100)'];
+</script>
+<script type="module" src="index.js"></script>
+</body>
+</html
