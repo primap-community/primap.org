@@ -1,4 +1,4 @@
-public/primap-hist/index.html: primap-hist/template.jinja2.html primap-hist/scripts/render-template.py
+docs/primap-hist/index.html: primap-hist/template.jinja2.html primap-hist/scripts/render-template.py
 	./venv/bin/python primap-hist/scripts/render-template.py
 
 .PHONY: csvs
