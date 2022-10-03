@@ -32,9 +32,9 @@ outputText = template.render(
     entities=[e.replace(" ", "_") for e in entities],
 )
 
-with open(root / "../public/primap-hist/index.html", "w") as f:
+with open(root / "../docs/primap-hist/index.html", "w") as f:
     f.write(outputText)
 
 print(
-    "Rendered `public/primap-hist/index.html` from `primap-hist/template.jinja2.html`."
+    "Rendered `docs/primap-hist/index.html` from `primap-hist/template.jinja2.html`."
 )
