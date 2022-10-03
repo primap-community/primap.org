@@ -6,9 +6,9 @@ import pandas as pd
 
 root = Path(__file__).parents[2]
 
-shutil.rmtree(root / "public/primap-hist/data")
+shutil.rmtree(root / "docs/primap-hist/data")
 
-data_dir = root / "public/primap-hist/data"
+data_dir = root / "docs/primap-hist/data"
 
 data_dir.mkdir()
 
