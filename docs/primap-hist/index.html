@@ -47,6 +47,9 @@ input.year {
 table tr.ipc {
   cursor: pointer;
 }
+table.group-names tr td {
+    text-align: left;
+}
 .legend-values, .legend-percent {
   text-align: right;
 }
@@ -64,7 +67,7 @@ table tr.ipc {
   stroke: black;
   stroke-width: 1px;
 }
-div#settings, div#totals-or-percentage, div#info-text {
+div#totals-or-percentage, div#info-text {
   text-align: center;
 }
 a {
@@ -181,7 +184,7 @@ Subsector data for Energy, Industrial Processes and Agriculture is available for
 
 
 
-<a href="https://zenodo.org/api/files/cba87e0d-4d62-40ac-8da4-8133deb6081c/PRIMAP-hist_v2.3.1_updated_figures.pdf"">Updated Figures (PDF)</a>
+<a href="https://zenodo.org/api/files/cba87e0d-4d62-40ac-8da4-8133deb6081c/PRIMAP-hist_v2.3.1_updated_figures.pdf">Updated Figures (PDF)</a>
 
 
 </p>
@@ -234,7 +237,7 @@ Subsector data for Energy, Industrial Processes and Agriculture is available for
 <tbody>
 <tr class="ipc" id="ipc5">
   <td class="pl3">
-    <input id="show-ipc5" type="checkbox" checked></input>
+    <input id="show-ipc5" type="checkbox" checked />
     </td>
     <td>Other (IPC5)</td>
     <td class=""><svg class="slopegraph"><path class="line"></path></svg></td>
@@ -243,7 +246,7 @@ Subsector data for Energy, Industrial Processes and Agriculture is available for
 </tr>
 <tr class="ipc" id="ipc4">
   <td class="pl3">
-    <input id="show-ipc4" type="checkbox" checked></input>
+    <input id="show-ipc4" type="checkbox" checked />
     </td>
     <td>Waste (IPC4)</td>
     <td class=""><svg class="slopegraph"><path class="line"></path></svg></td>
@@ -252,7 +255,7 @@ Subsector data for Energy, Industrial Processes and Agriculture is available for
 </tr>
 <tr class="ipc" id="ipcmag">
   <td class="pl3">
-    <input id="show-ipcmag" type="checkbox" checked></input>
+    <input id="show-ipcmag" type="checkbox" checked />
     </td>
   <td> Agriculture (IPCMAG, sum of IPC3A and IPCMAGELV)</td>
   <td class=""><svg class="slopegraph"><path class="line"></path></svg></td>
@@ -261,7 +264,7 @@ Subsector data for Energy, Industrial Processes and Agriculture is available for
 </tr>
 <tr class="ipc" id="ipc2">
   <td class="pl3">
-    <input id="show-ipc2" type="checkbox" checked></input>
+    <input id="show-ipc2" type="checkbox" checked />
   </td>
   <td>Industrial Processes and Product Use (IPC2)</td>
   <td class=""><svg class="slopegraph"><path class="line"></path></svg></td>
@@ -270,7 +273,7 @@ Subsector data for Energy, Industrial Processes and Agriculture is available for
 </tr>
 <tr class="ipc" id="ipc1">
   <td class="pl3">
-    <input id="show-ipc1" type="checkbox" checked></input>
+    <input id="show-ipc1" type="checkbox" checked />
   </td>
   <td>Energy (IPC1)</td>
   <td class=""><svg class="slopegraph"><path class="line"></path></svg></td>
@@ -302,13 +305,13 @@ Subsector data for Energy, Industrial Processes and Agriculture is available for
     Show percentages
   </label>
   <label>
-  <input id="fixed-scale" type="checkbox" checked></input>
+  <input id="fixed-scale" type="checkbox" checked />
   Keep scale fixed
   </label>
 </div>
 
 <div class="fl pt2 w-100">
-<table class="collapse w-100">
+<table class="group-names collapse w-100">
 <thead>
 <tr class="bb">
 <th>Group/Abbrev.</th>
@@ -317,36 +320,36 @@ Subsector data for Energy, Industrial Processes and Agriculture is available for
 </thead>
 <tbody>
 <tr class="striped--near-white bb b--black-10">
-<td align="left"><a class="primap-blue" href="#scenario=histcr&id=earth&entity=kyotoghg_(ar4gwp100)">All parties</a></td>
-<td align="left">Aggregated emissions for all countries.</td>
+<td><a class="primap-blue" href="#scenario=histcr&id=earth&entity=kyotoghg_(ar4gwp100)">All parties</a></td>
+<td>Aggregated emissions for all countries.</td>
 </tr>
 <tr class="striped--near-white bb b--black-10">
-<td align="left"><a class="primap-blue" href="#scenario=histcr&id=annexi&entity=kyotoghg_(ar4gwp100)">Annex-I</a></td>
-<td align="left">Annex-I Parties to the Convention</td>
+<td><a class="primap-blue" href="#scenario=histcr&id=annexi&entity=kyotoghg_(ar4gwp100)">Annex-I</a></td>
+<td>Annex-I Parties to the Convention</td>
 </tr>
 <tr class="striped--near-white bb b--black-10">
-<td align="left"><a class="primap-blue" href="#scenario=histcr&id=nonannexi&entity=kyotoghg_(ar4gwp100)">Non-Annex-I</a></td>
-<td align="left">Non-Annex-I Parties to the Convention</td>
-</tr>
-<tr class="striped--near-white bb b--black-10"">
-<td align="left"><a class="primap-blue" href="#scenario=histcr&id=aosis&entity=kyotoghg_(ar4gwp100)">AOSIS<a></td>
-<td align="left">Alliance of Small Island States</td>
+<td><a class="primap-blue" href="#scenario=histcr&id=nonannexi&entity=kyotoghg_(ar4gwp100)">Non-Annex-I</a></td>
+<td>Non-Annex-I Parties to the Convention</td>
 </tr>
 <tr class="striped--near-white bb b--black-10">
-<td align="left"><a class="primap-blue" href="#scenario=histcr&id=basic&entity=kyotoghg_(ar4gwp100)">BASIC</a></td>
-<td align="left">BASIC countries (Brazil, South Africa, India and China)</td>
+<td><a class="primap-blue" href="#scenario=histcr&id=aosis&entity=kyotoghg_(ar4gwp100)">AOSIS</a></td>
+<td>Alliance of Small Island States</td>
 </tr>
 <tr class="striped--near-white bb b--black-10">
-<td align="left"><a class="primap-blue" href="#scenario=histcr&id=eu27bx&entity=kyotoghg_(ar4gwp100)">EU27</a></td>
-<td align="left">European Union (post Brexit)</td>
+<td><a class="primap-blue" href="#scenario=histcr&id=basic&entity=kyotoghg_(ar4gwp100)">BASIC</a></td>
+<td>BASIC countries (Brazil, South Africa, India and China)</td>
+</tr>
+<tr class="striped--near-white bb b--black-10">
+<td><a class="primap-blue" href="#scenario=histcr&id=eu27bx&entity=kyotoghg_(ar4gwp100)">EU27</a></td>
+<td>European Union (post Brexit)</td>
 </tr>
 <tr class="striped--near-white">
-<td align="left"><a class="primap-blue" href="#scenario=histcr&id=ldc&entity=kyotoghg_(ar4gwp100)">LDC</a></td>
-<td align="left">Least Developed Countries</td>
+<td><a class="primap-blue" href="#scenario=histcr&id=ldc&entity=kyotoghg_(ar4gwp100)">LDC</a></td>
+<td>Least Developed Countries</td>
 </tr>
 <tr class="striped--near-white">
-<td align="left"><a class="primap-blue" href="#scenario=histcr&id=umbrella&entity=kyotoghg_(ar4gwp100)">Umbrella-Group</a></td>
-<td align="left">Umbrella Group</td>
+<td><a class="primap-blue" href="#scenario=histcr&id=umbrella&entity=kyotoghg_(ar4gwp100)">Umbrella-Group</a></td>
+<td>Umbrella Group</td>
 </tr>
 </tbody>
 </table>
@@ -505,6 +508,7 @@ Subsector data for Energy, Industrial Processes and Agriculture is available for
 
   </div>
 </div>
+
 
 <div class="footer">
   <a href="/privacy">Privacy Policy</a>
