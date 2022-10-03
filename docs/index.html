@@ -10,11 +10,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap"
           rel="stylesheet">
     <style>
+        html, body {
+            height: 100%;
+        }
+
         body {
             font-family: 'Fira Sans', sans-serif;
             max-width: 500px;
             margin: auto;
             text-align: center;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .footer {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: grey;
         }
     </style>
 </head>
@@ -43,6 +60,9 @@
     <div>
         <h2><a href="https://github.com/primap-community">PRIMAP community on GitHub</a></h2>
     </div>
+</div>
+<div class="footer">
+    <a href="/privacy">Privacy Policy</a>
 </div>
 </body>
 </html>
