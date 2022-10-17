@@ -15,12 +15,12 @@ data_dir.mkdir()
 for scen in ["HISTCR", "HISTTP"]:
 
     data = pd.read_csv(
-        root / "primap-hist/Guetschow-et-al-2021-PRIMAP-hist_v2.3.1_20-Sep_2021.csv"
+        root / "primap-hist/Guetschow-et-al-2022-PRIMAP-hist_v2.4_11-Oct-2022.csv"
     )
     data = data[data["scenario (PRIMAP-hist)"] == scen]
 
     # Check unit before dropping
-    assert data.loc[data.entity == "CH4"].unit.unique()[0] == "Gg CH4 / yr"
+    assert data.loc[data.entity == "CH4"].unit.unique()[0] == "CH4 * gigagram / a"
 
     data = data.drop(["source", "scenario (PRIMAP-hist)", "unit"], axis=1)
     data = data.set_index(["area (ISO3)", "category (IPCC2006_PRIMAP)", "entity"])
