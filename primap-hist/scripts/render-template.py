@@ -6,12 +6,12 @@ import pandas as pd
 import requests
 
 # Identifier of latest Zenodo release
-identifier = "5494497"
+identifier = "7179775"
 
 root = Path(__file__).parents[1]
 
 primaphist = pd.read_csv(
-    root / "Guetschow-et-al-2021-PRIMAP-hist_v2.3.1_20-Sep_2021.csv"
+    root / "Guetschow-et-al-2022-PRIMAP-hist_v2.4_11-Oct-2022.csv"
 )
 
 templateLoader = jinja2.FileSystemLoader(searchpath=root)
