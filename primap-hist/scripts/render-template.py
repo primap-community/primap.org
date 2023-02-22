@@ -4,14 +4,15 @@ from pathlib import Path
 import jinja2
 import pandas as pd
 import requests
+from constants import FILE_NAME, ZENODO_RECORD
 
 # Identifier of latest Zenodo release
-identifier = "7179775"
+identifier = ZENODO_RECORD
 
 root = Path(__file__).parents[1]
 
 primaphist = pd.read_csv(
-    root / "Guetschow-et-al-2022-PRIMAP-hist_v2.4_11-Oct-2022.csv"
+    root / FILE_NAME
 )
 
 templateLoader = jinja2.FileSystemLoader(searchpath=root)

@@ -5,8 +5,8 @@ docs/primap-hist/index.html: primap-hist/template.jinja2.html primap-hist/script
 csvs:
 	./venv/bin/python primap-hist/scripts/prepare-data.py
 
-primap-hist/Guetschow-et-al-2022-PRIMAP-hist_v2.4_11-Oct-2022.csv:
-	wget --no-clobber --directory-prefix primap-hist https://zenodo.org/record/7179775/files/Guetschow-et-al-2022-PRIMAP-hist_v2.4_11-Oct-2022.csv
+primap-hist/Guetschow-et-al-2023-PRIMAP-hist_v2.4.1_final_16-Feb-2023.csv:
+	wget --no-clobber --directory-prefix primap-hist https://zenodo.org/record/7585420/files/Guetschow-et-al-2023-PRIMAP-hist_v2.4.1_final_16-Feb-2023.csv
 
 venv: requirements.txt
 	[ -d ./venv ] || python3 -m venv venv

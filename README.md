@@ -18,12 +18,11 @@ make venv
 To update to a new version, update
 
 - the CSV to be downloaded into `primap-hist` in the Makefile,
-- as well as in the files in `primap-hist/scripts`, and
-- update the Zenodo record id in `primap-hist/scripts/render-template.py`
+- as well as in the filename and Zenodo record in `primap-hist/scripts/constants.py`
 
 To download the CSV data:
 ```
-make primap-hist/Guetschow-et-al-2021-PRIMAP-hist_v2.3.1_20-Sep_2021.csv
+make primap-hist/Guetschow-et-al-2023-PRIMAP-hist_v2.4.1_final_16-Feb-2023.csv
 ```
 
 To generate per country/entity CSV files used in the visualization and for download:
