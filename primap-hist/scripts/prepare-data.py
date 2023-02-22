@@ -3,6 +3,7 @@ import shutil
 from pathlib import Path
 
 import pandas as pd
+from constants import FILE_NAME
 
 root = Path(__file__).parents[2]
 
@@ -15,7 +16,7 @@ data_dir.mkdir()
 for scen in ["HISTCR", "HISTTP"]:
 
     data = pd.read_csv(
-        root / "primap-hist/Guetschow-et-al-2022-PRIMAP-hist_v2.4_11-Oct-2022.csv"
+        root / "primap-hist" / FILE_NAME
     )
     data = data[data["scenario (PRIMAP-hist)"] == scen]
 
