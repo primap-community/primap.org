@@ -21,6 +21,7 @@ To update to a new version, update
 - checkout a new branch
 - update the CSV to be downloaded into `primap-hist` in the Makefile,
 - update the filename and Zenodo record in `primap-hist/scripts/constants.py`
+- update changelog in `primap-hist/scripts/template.jinja2.html`
 - run `make build` to download the latest data and update the local files
 - Commit, push and create a MR
 
@@ -31,7 +32,7 @@ Once the MR is merged the updated website will be live
 
 To download the CSV data:
 ```
-make primap-hist/Guetschow-et-al-2023-PRIMAP-hist_v2.4.1_final_16-Feb-2023.csv
+make download
 ```
 
 To generate per country/entity CSV files used in the visualization and for download:
