@@ -9,8 +9,8 @@ csvs: download
 	./venv/bin/python primap-hist/scripts/prepare-data.py
 
 .PHONY: download
-download primap-hist/Guetschow-et-al-2023-PRIMAP-hist_v2.4.1_final_16-Feb-2023.csv primap-csvs:
-	wget --no-clobber --directory-prefix primap-hist https://zenodo.org/record/7585420/files/Guetschow-et-al-2023-PRIMAP-hist_v2.4.1_final_16-Feb-2023.csv
+download primap-hist/Guetschow-et-al-2023a-PRIMAP-hist_v2.4.2_final_09-Mar-2023.csv primap-csvs:
+	wget --no-clobber --directory-prefix primap-hist https://zenodo.org/record/7727475/files/Guetschow-et-al-2023a-PRIMAP-hist_v2.4.2_final_09-Mar-2023.csv
 
 .PHONY: build
 build: download csvs docs/primap-hist/index.html
@@ -20,4 +20,3 @@ venv: requirements.txt
 	./venv/bin/pip install --upgrade pip
 	./venv/bin/pip install -Ur requirements.txt
 	touch venv
-

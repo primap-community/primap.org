@@ -21,7 +21,7 @@ To update to a new version, update
 - checkout a new branch
 - update the CSV to be downloaded into `primap-hist` in the Makefile,
 - update the filename and Zenodo record in `primap-hist/scripts/constants.py`
-- update changelog in `primap-hist/scripts/template.jinja2.html`
+- update changelog in `primap-hist/template.jinja2.html`
 - run `make build` to download the latest data and update the local files
 - Commit, push and create a MR
 
