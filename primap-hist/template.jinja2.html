@@ -130,11 +130,11 @@ Subsector data for Energy, Industrial Processes and Agriculture is available for
 <p>
 <a href="https://github.com/JGuetschow/PRIMAP-hist">Issue tracker on GitHub</a> |
 {% for file in data["files"] %}
-{% if 'data-description.pdf' in file["key"] %}
-<a href="{{ file['links']['self'] }}">Data Description and Changelog (PDF)</a> |
+{% if 'data-description.pdf' in file["filename"] %}
+<a href="{{ file['links']['download'] }}">Data Description and Changelog (PDF)</a> |
 {% endif %}
-{% if 'updated_figures.pdf' in file["key"] %}
-<a href="{{ file['links']['self'] }}">Updated Figures (PDF)</a>
+{% if 'updated_figures.pdf' in file["filename"] %}
+<a href="{{ file['links']['download'] }}">Updated Figures (PDF)</a>
 {% endif %}
 {% endfor%}
 </p>
