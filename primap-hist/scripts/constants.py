@@ -1,3 +1,3 @@
-FILE_NAME = "Guetschow_et_al_2024-PRIMAP-hist_v2.5.1_final_27-Feb-2024.csv"
-ZENODO_RECORD = "10705513"
-VERSION = "v2.5.1"
+FILE_NAME = "Guetschow_et_al_2024a-PRIMAP-hist_v2.6_final_13-Sep-2024.csv"
+ZENODO_RECORD = "13752654"
+VERSION = "v2.6"
