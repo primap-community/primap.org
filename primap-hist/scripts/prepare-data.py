@@ -21,7 +21,7 @@ for scen in ["HISTCR", "HISTTP"]:
     data = data[data["scenario (PRIMAP-hist)"] == scen]
 
     # Check unit before dropping
-    assert data.loc[data.entity == "CH4"].unit.unique()[0] == "CH4 * gigagram / a"
+    assert data.loc[data.entity == "CH4"].unit.unique()[0] == "CH4 * gigagram / yr"
 
     data = data.drop(["source", "scenario (PRIMAP-hist)", "unit", "provenance"], axis=1)
     data = data.set_index(["area (ISO3)", "category (IPCC2006_PRIMAP)", "entity"])
