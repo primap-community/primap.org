@@ -22,7 +22,7 @@ To update to a new version, update
 - update the CSV to be downloaded into `primap-hist` in the Makefile,
 - update the filename and Zenodo record in `primap-hist/scripts/constants.py`
 - update changelog in `primap-hist/template.jinja2.html`
-- a a subfolder `chnagelog_<version>` in `docs/primap-hist/`, add the changelog `html` and `img` folders and rename the html file in the `html` directory to `index.html`.
+- create a subfolder `changelog_<version>` in `docs/primap-hist/`, add the changelog `html` and `img` folders and rename the html file in the `html` directory to `index.html`.
 - run `make build` to download the latest data and update the local files
 - Commit, push and create a MR
 
