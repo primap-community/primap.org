@@ -96,35 +96,6 @@ a {
 
 </div>
 
-<div class="bg-lightest-blue bt bb b--black-20">
-<div class="ph4 cf mw9">
-<div class="fl w-third pr4 ">
-<h3>Dataset Description Paper</h3>
-<p>
-Gütschow, Johannes; Jeffery, M. Louise; Gieseke, Robert; Gebel, Ronja; Stevens, David; Krapp, Mario; Rocha, Marcia (2016): The PRIMAP-hist national historical emissions
-time series, Earth Syst. Sci. Data, 8, 571-603,
-<a class="primap-blue" href="https://doi.org/10.5194/essd-8-571-2016">https://doi.org/10.5194/essd-8-571-2016</a>
-</p>
-</div>
-<div class="fl w-third pr4">
-<h3>Dataset Download (Version {{ data["metadata"]["version"] }})</h3>
-<p>
-{% for creator in data["metadata"]["creators"] %}
-{{ creator["name"] }}
-{{ "; " if not loop.last else "" }}
-{% endfor %}
-({{ data["metadata"]["publication_date"][:4] }}): {{ data["metadata"]["title"] }}. Zenodo. <a class="primap-blue" href="https://doi.org/{{ data['metadata']['doi'] }}">https://doi.org/{{ data['metadata']['doi'] }}</a>
-</p>
-</div>
-<div class="fl w-third pr4">
-<h3>Additional Data and Data Support Services</h3>
-<p>
-Climate Resource makes this data available <a class="primap-blue" href="https://creativecommons.org/licenses/by/4.0/ ">CC BY 4.0</a> licence. We also provide additional data, and data support services to clients wanting more frequent updates, additional metadata or to integrate these datasets into their workflows. Get in touch at <a class="primap-blue" href="mailto:contact@climate-resource.com">contact@climate-resource.com</a> if you are interested.
-</p>
-</div>
-</div>
-</div>
-
 <div class="cf bb b--black-20">
 <div class="fl w-100 ph4 mw8">
 <h3>About PRIMAP-hist</h3>
@@ -176,7 +147,7 @@ Subsector data for Energy, Industrial Processes and Agriculture is available for
 </div>
 
 <div id="chart"></div>
-<div>Data (<a href="https://doi.org/{{ data['metadata']['doi'] }}">CC-BY-4.0</a>): <a class="primap-blue" href="" id="download"></a></div>
+<div>Data (<a href="https://doi.org/{{ data['metadata']['doi'] }}">CC-BY-NC-SA-4.0</a>): <a class="primap-blue" href="" id="download"></a></div>
 </div>
 
 <div class="fl w-100 w-third-l">
@@ -317,7 +288,48 @@ Subsector data for Energy, Industrial Processes and Agriculture is available for
 
 </div>
 
-
+<div class="bg-lightest-blue bt bb b--black-20">
+    <div class="ph4 cf mw9">
+        <div class="fl w-30 pr4">
+            <div class="fl w-100 pr4 ">
+                <h3>Dataset Description Paper</h3>
+                <p>
+                    Gütschow, Johannes; Jeffery, M. Louise; Gieseke, Robert; Gebel, Ronja; Stevens, David; Krapp, Mario; Rocha, Marcia (2016): The PRIMAP-hist national historical emissions
+                    time series, Earth Syst. Sci. Data, 8, 571-603,
+                    <a class="primap-blue" href="https://doi.org/10.5194/essd-8-571-2016">https://doi.org/10.5194/essd-8-571-2016</a>
+                </p>
+            </div>
+            <div class="fl w-100 pr4">
+                <h3>Dataset Download (Version {{ data["metadata"]["version"] }})</h3>
+                <p>
+                    {% for creator in data["metadata"]["creators"] %}
+                    {{ creator["name"] }}
+                    {{ "; " if not loop.last else "" }}
+                    {% endfor %}
+                    ({{ data["metadata"]["publication_date"][:4] }}): {{ data["metadata"]["title"] }}. Zenodo. <a class="primap-blue" href="https://doi.org/{{ data['metadata']['doi'] }}">https://doi.org/{{ data['metadata']['doi'] }}</a>
+                </p>
+            </div>
+        </div>
+        <div class="fl w-70 pr4">
+            <h3>Commercial Licenses, additional Data and Data Support Services</h3>
+            <p>
+                Johannes Gütschow and Climate Resource make this data available under the <a class="primap-blue" href="https://creativecommons.org/licenses/by-nc-sa/4.0/ ">CC BY-NC-SA 4.0 licence</a>. This means that the data can be freely used for non-commercial purposes as long as you provide adequate citations and share your derived results under the same licence. For other uses and commercial customers, we offer specific commercial licenses.
+            </p>
+            <p>
+                For licenses for commercial use by NGOs and internal use by small companies, please contact Johannes Gütschow (<a class="primap-blue" href="mailto:commercial-support@johannes-guetschow.de">commercial-support@johannes-guetschow.de</a>).
+            </p>
+            <p>
+                Larger companies, including professional services and research providers, banks, insurance, investment companies and other financial institutions, multilateral organisations, and governments, please contact Mika Pflüger at Climate Resource (<a class="primap-blue" href="mailto:primap@climate-resource.com">primap@climate-resource.com</a>).
+            </p>
+            <p>
+                We also provide additional data, and data support services to clients wanting more frequent updates, additional metadata or to integrate these datasets into their workflows. Get in touch if you are interested.
+            </p>
+            <p>
+                Commercial use is defined as the use of the data for research or advice you have been contracted to provide, including the production of data or information you have derived from or that incorporates data or information obtained from this website for commercial purposes. This includes in the provision of data, advice or other services you have been contracted to provide, irrespective of whether you are a for-profit, or not-for-profit entity. It also includes the use of the data for investment decisions.
+            </p>
+        </div>
+    </div>
+</div>
 <div class="col-container">
   <div class="fl ph4 pb4-l w-50-l w-100">
 
@@ -360,6 +372,20 @@ Subsector data for Energy, Industrial Processes and Agriculture is available for
   </p>
 
   <h3>Changelog</h3>
+
+      <h4>Version 2.7 (August 2025)</h4>
+      <p>
+          The v2.7 release updates country reported and some third party data.
+          New and updated input data
+          sources are UNFCCC data for AnnexI and non-AnnexI countries, official country inventories, and
+          Energy Institute's fossil fuel related emissions. A more detailed changelog is available with the Zenodo release of the dataset
+          (<a class="primap-blue" href="https://doi.org/10.5281/zenodo.17090760">
+          https://doi.org/10.5281/zenodo.17090760</a>). Additionally we provide detailed per country changes
+          <a class="primap-blue" href="changelog_27/html/index.html">here</a>.
+
+          <br>
+
+      </p>
 
       <h4>Version 2.6.1 (March 2025)</h4>
       <p>
