@@ -9,10 +9,10 @@ csvs: download
 	./venv/bin/python primap-hist/scripts/prepare-data.py
 
 .PHONY: download
-download primap-hist/Guetschow_et_al_2025a-PRIMAP-hist_v2.7_final_22-Aug-2025.csv \
+download primap-hist/Guetschow_et_al_2026-PRIMAP-hist_v2.8_final_22-Sep-2026.csv \
  primap-csvs:
 	wget --no-clobber --directory-prefix primap-hist https://zenodo\
-	.org/record/17090760/files/Guetschow_et_al_2025a-PRIMAP-hist_v2.7_final_22-Aug-2025.csv
+	.org/record/22876287/files/Guetschow_et_al_2026-PRIMAP-hist_v2.8_final_22-Sep-2026.csv
 
 .PHONY: build
 build: venv download csvs docs/primap-hist/index.html
